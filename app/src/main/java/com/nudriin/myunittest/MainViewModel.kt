@@ -1,6 +1,6 @@
 package com.nudriin.myunittest
 
-class MainViewModel(private val cuboid: CuboidModel) {
+internal class MainViewModel(private val cuboid: CuboidModel) {
     fun getCircumference() = cuboid.getCircumference()
     fun getSurfaceArea() = cuboid.getSurfaceArea()
     fun getVolume() = cuboid.getVolume()
