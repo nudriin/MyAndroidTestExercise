@@ -5,6 +5,8 @@ import org.junit.Before
 
 import org.junit.Test
 import org.mockito.Mockito.mock
+import org.mockito.Mockito.verify
+import org.mockito.Mockito.`when`
 
 class MainViewModelTest {
 
@@ -57,5 +59,28 @@ class MainViewModelTest {
 
     @Test
     fun save() {
+    }
+
+    @Test
+    fun testMockVolume() {
+        `when`(mainViewModel.getVolume()).thenReturn(this.volume)
+        val volume = mainViewModel.getVolume()
+        verify(cuboidModel).getVolume()
+        assertEquals(this.volume, volume, 0.0001)
+    }
+
+    @Test
+    fun testMockCircumference() {
+        `when`(mainViewModel.getCircumference()).thenReturn(this.circumference)
+        val circumference = mainViewModel.getCircumference()
+        verify(cuboidModel).getCircumference()
+        assertEquals(this.circumference, circumference, 0.0001)
+    }
+    @Test
+    fun testMockSurfaceArea() {
+        `when`(mainViewModel.getSurfaceArea()).thenReturn(this.surfaceArea)
+        val surfaceArea = mainViewModel.getSurfaceArea()
+        verify(cuboidModel).getSurfaceArea()
+        assertEquals(this.surfaceArea, surfaceArea, 0.0001)
     }
 }
